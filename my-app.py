@@ -34,9 +34,8 @@ def draw():
     player_y = height - player_size/2
     
     #Asteroid
-    #Draw ball 1
     noStroke()
-    fill(255, 255, 0)
+    fill(255, 0, 0)
     ellipse(asteroids_pos_x, asteroids_pos_y, asteroids_size, asteroids_size)
     
     
