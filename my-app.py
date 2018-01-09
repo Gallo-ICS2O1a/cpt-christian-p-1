@@ -32,12 +32,6 @@ def draw():
     player_y = height - player_size/2
 
     #Asteroids falling
-    asteroids_pos_y += asteroids_speed_y
-
-    noStroke()
-    fill(128)
-    ellipse(asteroids_pos_x, asteroids_pos_y, asteroids_size, asteroids_size)
-    for x in range():
-        ellipse(asteroids_pos_x, asteroids_pos_y, asteroids_size, asteroids_size)
+   
         
         
