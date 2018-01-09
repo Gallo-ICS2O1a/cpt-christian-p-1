@@ -35,11 +35,21 @@ def draw():
     
     #Asteroid
     noStroke()
-    fill(255, 0, 0)
+    fill(255, 255, 0)
     ellipse(asteroids_pos_x, asteroids_pos_y, asteroids_size, asteroids_size)
-    
-    
+    for ellipse in range (0, 600):
+        
     #Asteroids falling
-    asteroids_pos_y += asteroids_speed_y
-    
-   
+        asteroids_pos_y += asteroids_speed_y
+
+    #Collision
+    radius_asteroids = asteroids_size/2
+    radius_player = player_size/2
+    a = asteroids_pos_x - player_x
+    b = asteroids_pos_y - player_y
+    distance = sqrt(a**2 + b**2) 
+    if distance <= radius_asteroids + radius_player:
+        score = 0 
+        asteroids_pos_y = 0
+        asteroids_pos_x = random(0, width)
+        
