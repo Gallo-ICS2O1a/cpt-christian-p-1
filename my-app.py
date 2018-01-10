@@ -55,21 +55,15 @@ def draw():
         asteroids_pos_x = random(0, width)
         
     # Score
-    
     fill(255)
     textSize(50)
     textAlign(LEFT)
     text(score, 20, 50)
     
     #Asteroids Respawn
-    if asteroids_pos_y == 0:
-        score == 0
-        fill(255)
-        textSize(100)
-        textAlign(CENTER)
-        text("GAME OVER", 20, 50)
-
+    if asteroids_pos_y > height:
+        asteroids_pos_y = 0
+        asteroids_pos_x = random(0, width)
         
-        
+    #Lasers
     
-        
