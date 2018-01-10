@@ -27,8 +27,9 @@ def draw():
     
     #Player ball
     fill(255, 255, 0)
-    ellipse(player_x, player_y , 65, 65)
-    
+    ellipse(player_x, player_y, 65, 65)
+     
+
     #Player ball movement
     player_x = mouseX
     player_y = height - player_size/2
@@ -37,12 +38,12 @@ def draw():
     noStroke()
     fill(255, 255, 0)
     ellipse(asteroids_pos_x, asteroids_pos_y, asteroids_size, asteroids_size)
-    for ellipse in range (0, 600):
+
         
     #Asteroids falling
-        asteroids_pos_y += asteroids_speed_y
+    asteroids_pos_y += asteroids_speed_y
 
-    #Collision
+    #Collision between asteroids and player ball
     radius_asteroids = asteroids_size/2
     radius_player = player_size/2
     a = asteroids_pos_x - player_x
@@ -52,4 +53,23 @@ def draw():
         score = 0 
         asteroids_pos_y = 0
         asteroids_pos_x = random(0, width)
+        
+    # Score
+    
+    fill(255)
+    textSize(50)
+    textAlign(LEFT)
+    text(score, 20, 50)
+    
+    #Asteroids Respawn
+    if asteroids_pos_y == 0:
+        score == 0
+        fill(255)
+        textSize(100)
+        textAlign(CENTER)
+        text("GAME OVER", 20, 50)
+
+        
+        
+    
         
