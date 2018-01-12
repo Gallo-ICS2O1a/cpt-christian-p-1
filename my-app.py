@@ -8,8 +8,9 @@ asteroids_speed_x = 0
 asteroids_speed_y = 2
 asteroids_size = 35
 y = 0
-laser1 = PVector (300, 300, 10)
-laser2 = PVector (200, 150, 25)
+speed = 1
+laser_y = 600
+
 def setup():
     size(600, 600)
 def draw():
@@ -23,8 +24,8 @@ def draw():
     global asteroids_speed_y
     global asteroids_size
     global y
-    global laser1
-    global laser2
+    global speed
+    global laser_y
     
     background(0)
 
@@ -38,7 +39,7 @@ def draw():
 
     # Asteroid
     noStroke()
-    fill(255, 255, 0)
+    fill(200)
     ellipse(asteroids_pos_x, asteroids_pos_y, asteroids_size, asteroids_size)
 
     # Asteroids falling
@@ -67,10 +68,14 @@ def draw():
         asteroids_pos_x = random(0, width)
         
     # Shooting lasers
-    lasers = [laser1, laser2]
+    lasers = [PVector(mouseX),PVector(mouseX), PVector(mouseX), PVector(mouseX)]
     for laser in lasers:
-        fill(255, 0, 0)
-        ellipse(300, 300, 50, 50)
+        fill(255, 255, 0)
+        ellipse(mouseX, laser_y, 10, 25)
+        if mousePressed:
+            for laser in lasers:
+                laser_y -= speed
+    
     #Game Over
     # if asteroids_pos_y == 0:
     #     fill(0, 255, 0)
