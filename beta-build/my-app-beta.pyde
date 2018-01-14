@@ -99,3 +99,13 @@ def draw():
         asteroids_pos_y = 0
         asteroids_pos_x = random(0, width)
         laser_y = 600
+    
+    
+    #Game Over
+    if asteroids_pos_y == 600:
+        score = 0
+    #     fill(0, 255, 0)
+    #     textSize(100)
+    #     textAlign(CENTER)
+    #     text("GAME OVER", 50, 75)    
+        
