@@ -104,8 +104,5 @@ def draw():
     #Game Over
     if asteroids_pos_y == 600:
         score = 0
-    #     fill(0, 255, 0)
-    #     textSize(100)
-    #     textAlign(CENTER)
-    #     text("GAME OVER", 50, 75)    
+    
         
