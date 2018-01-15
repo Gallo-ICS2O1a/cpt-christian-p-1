@@ -5,10 +5,10 @@ score = 0
 asteroids_pos_x = 0
 asteroids_pos_y = 0
 asteroids_speed_x = 0
-asteroids_speed_y = 2
+asteroids_speed_y = 2.5
 asteroids_size = 35
 y = 0
-speed = 1
+speed = 2
 laser_y = 600
 laser_size = 25
 
