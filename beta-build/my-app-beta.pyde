@@ -4,8 +4,10 @@ player_size = 50
 score = 0
 asteroids_pos_x = 0
 asteroids_pos_x1 = 100
+asteroids_pos_x2 = 200
 asteroids_pos_y = 0
 asteroids_pos_y1 = 0
+asteroids_pos_y2 = 0 
 asteroids_speed_x = 0
 asteroids_speed_y = 2.5
 asteroids_size = 35
@@ -13,6 +15,7 @@ y = 0
 speed = 2
 laser_y = 600
 laser_size = 25
+
 
 def setup():
     size(600, 600)
@@ -32,6 +35,8 @@ def draw():
     global laser_size
     global asteroids_pos_x1
     global asteroids_pos_y1
+    global asteroids_pos_x2
+    global asteroids_pos_y2
     
     background(0)
     
@@ -149,12 +154,40 @@ def draw():
         if asteroids_pos_y1 > height:
             asteroids_pos_y1 = 0
             asteroids_pos_x1 = random(0, width)
+            
+     # If score = 25
+    if score >= 25:
+        #Asteroids
+        noStroke()
+        fill(200)
+        ellipse(asteroids_pos_x2, asteroids_pos_y2, asteroids_size, asteroids_size)
+        #Respawn
+        asteroids_pos_y2 += asteroids_speed_y
+        #Collision PLAYER - ASTEROID
+        radius_asteroids = asteroids_size / 2
+        radius_player = player_size / 2
+        a = asteroids_pos_x2 - player_x
+        b = asteroids_pos_y2 - player_y
+        distance = sqrt(a ** 2 + b ** 2)
+        if distance <= radius_asteroids + radius_player:
+            score = 0
+            asteroids_pos_y2 = 0
+            asteroids_pos_x2 = random(0, width)
+            
+        #COLLISION ASTEROID-LASER
+        radius_asteroids = asteroids_size / 2
+        radius_laser = laser_size / 2
+        a = asteroids_pos_x2 - mouseX
+        b = asteroids_pos_y2 - laser_y
+        distance = sqrt(a ** 2 + b ** 2)
+        if distance <= radius_asteroids + radius_laser:
+            score += 1
+            asteroids_pos_y2 = 0
+            asteroids_pos_x2 = random(0, width)
+            laser_y = 600
         
-        
-        
-
-        
-        
-    
-    
+        # Asteroids Respawn
+        if asteroids_pos_y2 > height:
+            asteroids_pos_y2 = 0
+            asteroids_pos_x2 = random(0, width)    
         
