@@ -172,6 +172,12 @@ def draw():
     # Game Over
     if asteroids_pos_y == 600:
         score = 0
+    elif asteroids_pos_y1 == 600:
+        score = 0
+    elif asteroids_pos_y2 == 600:
+        score = 0
+    elif asteroids_pos_y3 == 600:
+        score = 0
     # If score = 5
     if score >= 5:
         # Asteroids
