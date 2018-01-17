@@ -16,9 +16,11 @@ asteroids_size = 35
 speed = 2
 laser_y = 600
 laser_size = 25
-Text = "YOU WIN"
+Text = "YOU WIN, YOU HAVE SAVED THE EARTH"
 BONUS = "BONUS"
-Instructions = "ASTEROIDS ARE FALLING IT IS YOUR JOB TO DESTROY 50 OF THEM"
+Instructions = """ASTEROIDS ARE FALLING IT IS YOUR JOB TO DESTROY 50 OF THEM 
+USING YOUR AUTOMATIC SOLAR FLARES
+ONCE YOUR FLARE HITS THE ASTEROID THE GAME BEGINS"""
 def setup():
     size(600, 600)
 def draw():
@@ -99,8 +101,8 @@ def draw():
     ellipse(582, 109, 5, 5)
     # Instructions
     if score == 0:
-        asteroids_speed_y = 1
-        speed = 0.4
+        asteroids_speed_y = 0.95
+        speed = 0.35
         fill(0, 255, 0)
         textSize(15)
         textAlign(CENTER)
@@ -273,7 +275,7 @@ def draw():
             asteroids_pos_y3 = 0
             asteroids_pos_x3 = random(0, width)
             laser_y = 600
-        # Asteroids Respawn
+        # Asteroids Respawn 
         if asteroids_pos_y3 > height:
             asteroids_pos_y3 = 0
             asteroids_pos_x3 = random(0, width)
@@ -281,7 +283,7 @@ def draw():
         if score == 50:
             asteroids_pos_y == 600
             fill(255)
-            textSize(50)
+            textSize(35)
             textAlign(CENTER)
             text(Text, 300, 300)
         if score == 51:
