@@ -305,15 +305,15 @@ def draw():
         textSize(65)
         textAlign(CENTER)
         text(Round_4, 300, 300)
-        # YOU WIN
-        if score == 50:
-            asteroids_pos_y == 600
-            fill(255)
-            textSize(25)
-            textAlign(CENTER)
-            text(Text, 300, 300)
-        if score == 51:
-            fill(255)
-            textSize(75)
-            textAlign(CENTER)
-            text(BONUS, 300, 300)
+    # YOU WIN
+    if score == 50:
+        asteroids_pos_y == 600
+        fill(255)
+        textSize(35)
+        textAlign(CENTER)
+        text(Text, 300, 300)
+    if score == 51:
+        fill(255)
+        textSize(75)
+        textAlign(CENTER)
+        text(BONUS, 300, 300)
