@@ -16,11 +16,15 @@ asteroids_size = 35
 speed = 2
 laser_y = 600
 laser_size = 25
-Text = "YOU WIN, YOU HAVE SAVED THE EARTH"
+Text = """YOU WIN,
+YOU HAVE SAVED THE EARTH"""
 BONUS = "BONUS"
-Instructions = """ASTEROIDS ARE FALLING IT IS YOUR JOB TO DESTROY 50 OF THEM 
+Instructions = """ASTEROIDS ARE FALLING IT IS YOUR JOB TO DESTROY 50 OF THEM
 USING YOUR AUTOMATIC SOLAR FLARES
 ONCE YOUR FLARE HITS THE ASTEROID THE GAME BEGINS"""
+Round_2 = "ROUND 2"
+Round_3 = "ROUND 3"
+Round_4 = "ROUND 4"
 def setup():
     size(600, 600)
 def draw():
@@ -45,8 +49,11 @@ def draw():
     global Text
     global Instructions
     global BONUS
+    global Round_2
+    global Round_3
+    global Round_4
     background(0)
-    #Stars in the Background
+    # Stars in the Background
     fill(255, 255, 0)
     ellipse(127, 345, 5, 5)
     fill(0, 191, 255)
@@ -72,9 +79,9 @@ def draw():
     fill(255, 255, 0)
     ellipse(83, 563, 5, 5)
     fill(255, 255, 0)
-    ellipse(267, 233, 5, 5)    
+    ellipse(267, 233, 5, 5)
     fill(255, 255, 0)
-    ellipse(235, 98, 5, 5)    
+    ellipse(235, 98, 5, 5)
     fill(255, 69, 0)
     ellipse(69, 203, 5, 5)
     fill(219, 112, 147)
@@ -99,10 +106,13 @@ def draw():
     ellipse(43, 29, 5, 5)
     fill(255, 255, 0)
     ellipse(582, 109, 5, 5)
+    fill(0, 255, 0)
+    ellipse(300, 200, 5, 5)
+    fill(0)
     # Instructions
     if score == 0:
-        asteroids_speed_y = 0.95
-        speed = 0.35
+        asteroids_speed_y = 0.75
+        speed = 0.25
         fill(0, 255, 0)
         textSize(15)
         textAlign(CENTER)
@@ -213,6 +223,12 @@ def draw():
         if asteroids_pos_y1 > height:
             asteroids_pos_y1 = 0
             asteroids_pos_x1 = random(0, width)
+    # Round 2
+    if score == 5:
+        fill(255)
+        textSize(65)
+        textAlign(CENTER)
+        text(Round_2, 300, 300)
     # If score = 25
     if score >= 25:
         # Asteroids
@@ -246,6 +262,11 @@ def draw():
         if asteroids_pos_y2 > height:
             asteroids_pos_y2 = 0
             asteroids_pos_x2 = random(0, width)
+    if score == 25:
+        fill(255)
+        textSize(65)
+        textAlign(CENTER)
+        text(Round_3, 300, 300)
     # If score = 40
     # Asteroids
     if score >= 40:
@@ -275,21 +296,24 @@ def draw():
             asteroids_pos_y3 = 0
             asteroids_pos_x3 = random(0, width)
             laser_y = 600
-        # Asteroids Respawn 
+        # Asteroids Respawn
         if asteroids_pos_y3 > height:
             asteroids_pos_y3 = 0
             asteroids_pos_x3 = random(0, width)
+    if score == 40:
+        fill(255)
+        textSize(65)
+        textAlign(CENTER)
+        text(Round_4, 300, 300)
         # YOU WIN
-        if score == 50:
+        if score == 50 and 51 and 52 and 53 and 54 and 55:
             asteroids_pos_y == 600
             fill(255)
-            textSize(35)
+            textSize(25)
             textAlign(CENTER)
             text(Text, 300, 300)
-        if score == 51:
+        if score == 56 and 57:
             fill(255)
             textSize(75)
             textAlign(CENTER)
             text(BONUS, 300, 300)
-
-
