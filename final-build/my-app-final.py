@@ -111,8 +111,8 @@ def draw():
     fill(0)
     # Instructions
     if score == 0:
-        asteroids_speed_y = 0.75
-        speed = 0.25
+        asteroids_speed_y = 0.70
+        speed = 0.20
         fill(0, 255, 0)
         textSize(15)
         textAlign(CENTER)
@@ -317,3 +317,38 @@ def draw():
         textSize(75)
         textAlign(CENTER)
         text(BONUS, 300, 300)
+    # Collision when score = 0
+    if score == 0:
+        # Score = 5
+        radius_asteroids = asteroids_size / 2
+        radius_laser = laser_size / 2
+        a = asteroids_pos_x1 - mouseX
+        b = asteroids_pos_y1 - laser_y
+        distance = sqrt(a ** 2 + b ** 2)
+        if distance <= radius_asteroids + radius_laser:
+            score += 1
+            asteroids_pos_y1 = 0
+            asteroids_pos_x1 = random(0, width)
+            laser_y = 600
+        # Score = 25
+        radius_asteroids = asteroids_size / 2
+        radius_laser = laser_size / 2
+        a = asteroids_pos_x2 - mouseX
+        b = asteroids_pos_y2 - laser_y
+        distance = sqrt(a ** 2 + b ** 2)
+        if distance <= radius_asteroids + radius_laser:
+            score += 1
+            asteroids_pos_y2 = 0
+            asteroids_pos_x2 = random(0, width)
+            laser_y = 600
+        # Score = 40
+        radius_asteroids = asteroids_size / 2
+        radius_laser = laser_size / 2
+        a = asteroids_pos_x3 - mouseX
+        b = asteroids_pos_y3 - laser_y
+        distance = sqrt(a ** 2 + b ** 2)
+        if distance <= radius_asteroids + radius_laser:
+            score += 1
+            asteroids_pos_y3 = 0
+            asteroids_pos_x3 = random(0, width)
+            laser_y = 600
