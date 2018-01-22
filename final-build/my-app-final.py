@@ -23,13 +23,15 @@ DESTROY 100 ASTEROIDS"""
 Instructions = """ASTEROIDS ARE FALLING IT IS YOUR JOB TO DESTROY 50 OF THEM
 USING YOUR AUTOMATIC SOLAR FLARES
 ONCE YOUR FLARE HITS THE ASTEROID THE GAME BEGINS
-TO SKIP INSTRUCTIONS CLICK SCREEN"""
+TO SKIP INSTRUCTIONS CLICK/HOLD SCREEN"""
 Round_2 = """ROUND 2
 2 ASTEROIDS"""
 Round_3 = """ROUND 3
 3 ASTEROIDS"""
 Round_4 = """ROUND 4
 4 ASTEROIDS"""
+Congratulations ="""CONGRATULATIONS
+GAME WILL RESTART"""
 def setup():
     size(600, 600)
 def draw():
@@ -57,6 +59,8 @@ def draw():
     global Round_2
     global Round_3
     global Round_4
+    global Instructions
+    global Congratulations
     background(0)
     # Stars in the Background
     fill(255, 255, 0)
@@ -361,4 +365,10 @@ def draw():
             asteroids_pos_x3 = random(0, width)
             laser_y = 600
     if score == 100:
+        fill(255)
+        textSize(45)
+        textAlign(CENTER)
+        text(Congratulations, 300, 300)
+    elif score == 102:
         score = 0
+ 
