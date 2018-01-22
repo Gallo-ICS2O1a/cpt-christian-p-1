@@ -18,13 +18,18 @@ laser_y = 600
 laser_size = 25
 Text = """YOU WIN,
 YOU HAVE SAVED THE EARTH"""
-BONUS = "BONUS"
+BONUS = """BONUS
+DESTROY 100 ASTEROIDS"""
 Instructions = """ASTEROIDS ARE FALLING IT IS YOUR JOB TO DESTROY 50 OF THEM
 USING YOUR AUTOMATIC SOLAR FLARES
-ONCE YOUR FLARE HITS THE ASTEROID THE GAME BEGINS"""
-Round_2 = "ROUND 2"
-Round_3 = "ROUND 3"
-Round_4 = "ROUND 4"
+ONCE YOUR FLARE HITS THE ASTEROID THE GAME BEGINS
+TO SKIP INSTRUCTIONS CLICK SCREEN"""
+Round_2 = """ROUND 2
+2 ASTEROIDS"""
+Round_3 = """ROUND 3
+3 ASTEROIDS"""
+Round_4 = """ROUND 4
+4 ASTEROIDS"""
 def setup():
     size(600, 600)
 def draw():
@@ -111,8 +116,8 @@ def draw():
     fill(0)
     # Instructions
     if score == 0:
-        asteroids_speed_y = 0.70
-        speed = 0.20
+        asteroids_speed_y = 0.60
+        speed = 0.10
         fill(0, 255, 0)
         textSize(15)
         textAlign(CENTER)
@@ -120,6 +125,9 @@ def draw():
     else:
         asteroids_speed_y = 2.5
         speed = 2
+    # Instructions skip
+    if mousePressed and score == 0:
+        score += 1
     # Player ball
     fill(255, 255, 0)
     ellipse(player_x, player_y, 65, 65)
@@ -226,7 +234,7 @@ def draw():
     # Round 2
     if score == 5:
         fill(255)
-        textSize(65)
+        textSize(45)
         textAlign(CENTER)
         text(Round_2, 300, 300)
     # If score = 25
@@ -264,7 +272,7 @@ def draw():
             asteroids_pos_x2 = random(0, width)
     if score == 25:
         fill(255)
-        textSize(65)
+        textSize(45)
         textAlign(CENTER)
         text(Round_3, 300, 300)
     # If score = 40
@@ -302,7 +310,7 @@ def draw():
             asteroids_pos_x3 = random(0, width)
     if score == 40:
         fill(255)
-        textSize(65)
+        textSize(45)
         textAlign(CENTER)
         text(Round_4, 300, 300)
     # YOU WIN
@@ -314,7 +322,7 @@ def draw():
         text(Text, 300, 300)
     if score == 51:
         fill(255)
-        textSize(75)
+        textSize(42)
         textAlign(CENTER)
         text(BONUS, 300, 300)
     # Collision when score = 0
@@ -352,3 +360,5 @@ def draw():
             asteroids_pos_y3 = 0
             asteroids_pos_x3 = random(0, width)
             laser_y = 600
+    if score == 100:
+        score = 0
